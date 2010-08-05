@@ -1,0 +1,84 @@
+= mm-devise
+
+== Note
+*Aug 5, 2010*
+
+This gem has not been tested but is currently just a quick "hack" to use *dm-devise* by Jared Morgan as a template 
+for a Mongo Mapper integration with Devise. Please assist in this effort in you have knowledge of the internals of Devise and Mongo Mapper.
+
+== Intro
+
+mm-devise will (hopefully!) let you use devise (http://github.com/plataformatec/devise) with MongoMapper. 
+
+The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
+
++Note: Not sure if this is approach needed for MongoMapper!?+
+
+:mongo_mapper::
+  Default.
+:mongo_mapper_active_model::
+  Uses ActiveModel::Validations. 
+  
+  The advantage to this is ActiveModel's I18n support for error messages, and
+  it uses the same validations lib as devise does by default.
+
+mm-devise is intended for use with Rails 3 and devise 1.1. 
+It may work with earlier versions, but it's not been tested
+
+This README only covers dm-devise specifics. 
+Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== Installation
+
+Add devise, dm-devise and dm gems to your Gemfile. The following gems are
+required (although devise version may differ)
+
+  gem 'mongo_mapper',      '>= 0.8.2'
+  gem 'devise',            '~> 1.1.1'
+  gem 'mm-devise',         '>= 1.1.0'
+
+Run the generator:
+
+  rails generate devise:install
+
+The generator will install an initializer which describes ALL Devise's
+configuration options and you MUST take a look at it. Make sure to specify
+either mongo_mapper or data_mapper_active_model
+(ActiveModel::Validations) as the orm in the configuration file.
+
+To add Devise to any of your models using the generator:
+
+  rails generate mongo_mapper:devise MODEL
+
+Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== TODO
+
+* Example app
+* Rails templates
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Maintainers
+
+== Contributors
+
+== Bugs and Feedback
+
+For mm-devise specific issues, please create an issue on GitHub at:
+
+http://github.com/kristianmandrup/mm-devise/issues
+
+== Copyright
+
+Copyright (c) 2010 Jared Morgan. See LICENSE for details.
+
+Note: I, Kristian Mandrup used dm-devise as a template for creating this gem.
