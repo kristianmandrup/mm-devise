@@ -5,9 +5,11 @@ module MongoMapper
     # a Symbol. This does not translate, consistent with normal DataMapper
     # operation. Set DataMapper::Validate::ValidationErrors.default_error_messages
     # if alternate messages are needed (after devise has been initialized).
-    class ValidationErrors
-      alias_method :original_add, :add
-
+    class ValidationErrors                 
+      class << self
+        attr_accessor :default_error_messages
+      end
+      
       # If the message is a Symbol, allow +default_error_message+ to generate
       # the message, including translation.
       def add(field_name, message)
@@ -16,6 +18,7 @@ module MongoMapper
         end
         original_add(field_name, message) unless errors[field_name].include?(message)
       end
+      alias_method :original_add, :add      
     end
   end
 end

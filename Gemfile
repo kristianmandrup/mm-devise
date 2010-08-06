@@ -9,4 +9,5 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem "oauth2"
 
 gem 'mongo_mapper',      '>= 0.8.2'
+gem 'bson_ext', '>= 1.0.4'
 
