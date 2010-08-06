@@ -54,6 +54,7 @@ begin
     gem.homepage = "http://github.com/kristianmandrup/mm-devise"
     gem.authors = ["Kristian Mandrup"]
     gem.add_dependency 'mongo_mapper',   '>= 0.8.2'
+    gem.add_dependency 'jnunemaker-validatable', '>= 1.8.4'
     # gem.add_dependency 'bson_ext',       '>= 1.0.4'
     gem.add_dependency 'devise'
     gem.add_dependency 'warden',         '~> 0.10.7'

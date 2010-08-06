@@ -1,6 +1,7 @@
 require 'shared_user'
 
 class User
+  # extend Devise::Models
   include MongoMapper::Document
 
   key :username, String
@@ -10,8 +11,11 @@ class User
   include SharedUser
   include Shim
 
+  validates_uniqueness_of :email, :times => 1, :key => 'anything' 
+  validates_presence_of :email, :times => 1, :key => 'anything'
+
   unless DEVISE_ORM == :mongo_mapper_active_model
-    before :valid?, :update_password_confirmation
+    before_validation :update_password_confirmation
 
     # DM's validates_confirmation_of requires the confirmation field to be present,
     # while ActiveModel by default skips the confirmation test if the confirmation

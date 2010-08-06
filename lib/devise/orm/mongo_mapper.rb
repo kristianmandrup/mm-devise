@@ -19,9 +19,12 @@ module Devise
   end
 end
 
-module MongoMapper
-  module Document
-    extend ::Devise::Models
-    extend ::Devise::Orm::MongoMapper::Hook
-  end
-end
+MongoMapper::Document.append_extensions(Devise::Models)
+MongoMapper::Document.append_extensions(Devise::Orm::MongoMapper::Hook)
+
+# module MongoMapper
+#   module Document
+#     extend ::Devise::Models
+#     extend ::Devise::Orm::MongoMapper::Hook
+#   end
+# end

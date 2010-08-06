@@ -17,13 +17,14 @@ module MongoMapper
       # included in the original message. Assuming that the field name will
       # begin the message, just strip it out (plus the following space) for
       # testing purposes. This has no effect on #full_messages.
-      def [](property_name)
-        if property_errors = errors[property_name.to_sym]
-          property_errors.collect do |message|
-            message[(property_name.to_s.length + 1)..-1]
-          end
-        end
-      end
+
+      # def [](property_name)
+      #   if property_errors = errors[property_name.to_sym]
+      #     property_errors.collect do |message|
+      #       message[(property_name.to_s.length + 1)..-1]
+      #     end
+      #   end
+      # end
     end
   end
 end

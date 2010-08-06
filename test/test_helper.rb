@@ -8,6 +8,9 @@ require "rails_app/config/environment"
 require "rails/test_help"
 require "orm/#{DEVISE_ORM}"
 
+MongoMapper.connection = Mongo::Connection.new('localhost')
+MongoMapper.database = 'mm-devise-db'
+
 I18n.load_path << "#{DEVISE_PATH}/test/support/locale/en.yml"
 require 'mocha'
 

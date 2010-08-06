@@ -105,6 +105,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   bson_ext (>= 1.0.4)
+  jnunemaker-validatable (>= 1.8.4)
   mocha
   mongo_mapper (>= 0.8.2)
   oauth2

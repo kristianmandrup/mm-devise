@@ -21,9 +21,14 @@ module Devise
               options[new_key] = options.delete(old_key)
             end
           end
-
+          
           options.delete(:default) if options[:default].nil?
-          property name, type, options
+          
+          if [:email, :encrypted_password, :password_salt].include? name
+            key name, type #, options
+          else
+            key name, type, options          
+          end
         end
       end
     end

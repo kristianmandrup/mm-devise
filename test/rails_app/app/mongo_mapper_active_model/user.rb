@@ -9,5 +9,9 @@ class User
   timestamps!
 
   include SharedUser
-  include Shim
+  include Shim     
+  
+  validates_uniqueness_of :email, :times => 1, :key => 'anything' 
+  validates_presence_of :email, :times => 1, :key => 'anything'
+
 end

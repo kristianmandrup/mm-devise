@@ -33,10 +33,11 @@ Make sure to read the devise README http://github.com/plataformatec/devise/blob/
 Add devise, dm-devise and dm gems to your Gemfile. The following gems are
 required (although devise version may differ)
 
-  gem 'mongo_mapper',      '>= 0.8.2'
-  gem 'bson_ext',          '>= 1.0.4'
-  gem 'devise',            '~> 1.1.1'
-  gem 'mm-devise',         '>= 1.1.0'
+  gem 'mongo_mapper',           '>= 0.8.2'
+  gem 'jnunemaker-validatable', '>= 1.8.4'
+  gem 'bson_ext',               '>= 1.0.4'
+  gem 'devise',                 '~> 1.1.1'
+  gem 'mm-devise',              '>= 1.1.0'
 
 Run the generator:
 
