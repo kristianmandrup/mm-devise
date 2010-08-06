@@ -1,31 +1,41 @@
-module MongoMapper
-  module Validate
-
-    # Monkey-patch ValidationErrors to support generation of error message from
-    # a Symbol. This does not translate, consistent with normal DataMapper
-    # operation. Set DataMapper::Validate::ValidationErrors.default_error_messages
-    # if alternate messages are needed (after devise has been initialized).
-    class ValidationErrors                 
-      class << self
-        attr_accessor :default_error_messages
-      end
+module Validatable
+  # Monkey-patch Validatable::Errors to support generation of error message from
+  # a Symbol. 
+  class Errors                 
+    class << self
+      attr_accessor :default_error_messages       
       
-      # If the message is a Symbol, allow +default_error_message+ to generate
-      # the message, including translation.
-      def add(field_name, message)
-        if message.kind_of?(Symbol)
-          message = self.class.default_error_message(message, field_name)
-        end
-        original_add(field_name, message) unless errors[field_name].include?(message)
+      def default_error_message(msg, name)
+        default_error_messages[name] = msg         
       end
-      alias_method :original_add, :add      
+    end
+
+    # original add before monkey-patch
+    # def add(attribute, message) #:nodoc:
+    #   errors[attribute.to_sym] = [] if errors[attribute.to_sym].nil?
+    #   errors[attribute.to_sym] << message
+    # end
+
+    alias_method :original_add, :add
+    
+    # If the message is a Symbol, allow +default_error_message+ to generate
+    # the message, including translation.
+    def add(field_name, message)
+      if message.kind_of?(Symbol)
+        message = self.class.default_error_message(message, field_name)
+      end              
+      fld_name = field_name.to_sym
+      errors[fld_name] = [] if errors[fld_name].nil?               
+      existing_msg = errors[fld_name].include?(message)
+      original_add(fld_name, message) unless existing_msg
     end
   end
 end
 
+
 # Default error messages consistent with ActiveModel messages and devise
 # expectations.
-MongoMapper::Validate::ValidationErrors.default_error_messages = {
+Validatable::Errors.default_error_messages = {
   :absent => '%s must be absent',
   :inclusion => '%s is not included in the list',
   :exclusion => '%s is reserved',

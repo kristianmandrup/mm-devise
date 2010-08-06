@@ -37,15 +37,15 @@ module Devise
             case args.first
             when :first, :all
               send(args.shift, *args)
-            else
-              get(*args)
+            else          
+              where(:'_id' => args.first).first
             end
           end
         end
 
-        def changed?
-          dirty?
-        end
+        # def changed?
+        #   dirty?
+        # end
 
         def save(options=nil)
           if options.is_a?(Hash) && options[:validate] == false
@@ -56,12 +56,12 @@ module Devise
         end
 
         def update_attribute(name, value)
-          update(name => value)
+          update_atributes(name => value)
         end
-        
-        def update_attributes(*args)
-          update(*args)
-        end
+        # 
+        # def update_attributes(*args)
+        #   update(*args)
+        # end
 
         def invalid?
           !valid?

@@ -17,9 +17,5 @@ module Shim
     def create!(*args)
       create(*args)
     end
-
-    def destroy_all
-      all.destroy
-    end
   end
 end
