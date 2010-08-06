@@ -35,6 +35,24 @@ module Validatable
   end
 end
 
+module Validatable 
+  class ValidatesPresenceOf < ValidationBase #:nodoc:
+    def message(instance)
+      super || "can't be blank"
+    end
+  end
+end
+
+module Validatable
+  class ValidatesLengthOf < ValidationBase #:nodoc:    
+    def message(instance)
+      min = !within.nil? ? within.first : minimum
+      max = !within.nil? ? within.last : maximum
+      super || "must be between #{min} and #{max} characters long"
+    end
+  end
+end
+
 
 # Default error messages consistent with ActiveModel messages and devise
 # expectations.

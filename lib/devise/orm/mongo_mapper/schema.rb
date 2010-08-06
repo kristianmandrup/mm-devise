@@ -39,37 +39,39 @@ module Devise
 
           type = Time if type == DateTime
           
-          if [:email, :encrypted_password, :password_salt].include? name            
-            is_required = options.delete(:required)
-            is_length = options.delete(:length)
+          is_required = options.delete(:required)
+          is_length = options.delete(:length)
 
-            # puts "key #{name.inspect}, options: #{options.inspect}, required: #{is_required}"
+          # puts "key #{name.inspect}, options: #{options.inspect}, required: #{is_required}"
 
-            key name, type, options
+          key name, type, options
 
-            v_util = ::MongoMapper::ValidationUtil
-            v_util.inc_counter
+          v_util = ::MongoMapper::ValidationUtil
+          v_util.inc_counter
 
-            if name == :email
-              key = "unique_#{name}_#{v_util.counter}"     
-              # puts "key: #{key}"
-              validates_uniqueness_of name.to_sym, :key => key
-            end
-            
-            if is_length
-              key = "length_#{name}_#{v_util.counter}"     
-              # puts "key: #{key}"
-              validates_length_of name.to_sym, :key => key
-            end
+          if name == :email
+            key = "unique_#{name}_#{v_util.counter}"     
+            validates_uniqueness_of name.to_sym, :key => key
+          end
+          
+          if is_length
+            key = "length_#{name}_#{v_util.counter}"     
+            options = case is_length
+            when Fixnum
+              {:maximum => is_length}
+            when Hash
+              is_length
+            else
+              raise ArgumentError, "length validation option must be either a Fixnum or Hash"                                
+            end            
+            options[:key] = key            
+            validates_length_of name.to_sym, options
+          end
 
-            if is_required                               
-              key = "presence_#{name}_#{v_util.counter}"    
-              # puts "key: #{key}"              
-              validates_presence_of name.to_sym, :key => key
-            end
-          else
-            key name, type, options          
-          end              
+          if is_required                               
+            key = "presence_#{name}_#{v_util.counter}"
+            validates_presence_of name.to_sym, :key => key
+          end
         end
       end
     end
