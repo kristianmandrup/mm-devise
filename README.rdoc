@@ -1,21 +1,24 @@
 = mm-devise
 
 == Note
-*Aug 5, 2010*
+*Aug 6, 2010*
 
-This gem has not been tested but is currently just a quick "hack" to use *dm-devise* by Jared Morgan as a template 
-for a Mongo Mapper integration with Devise. Please assist in this effort in you have knowledge of the internals of Devise and Mongo Mapper.
+This gem has been developed using Test Driven Development (see section at the bottom of this page for how to set it up for TDD).
+If you run `$ rake test`, you will see that there are still a few errors and failures that remain to be resolved 
+
+*51 failures, 4 errors*
+ 
+Many of the failures are "repeat failures". There are only a few unique failures and errors that remain to be fixed, many just concerning error message translations.
+Please help fix these few errors :) 
 
 == Intro
 
-mm-devise will (hopefully!) let you use devise (http://github.com/plataformatec/devise) with MongoMapper. 
+mm-devise will let you use devise (http://github.com/plataformatec/devise) with MongoMapper. 
 
 The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
 
-+Note: Not sure if this is approach needed for MongoMapper!?+
-
 :mongo_mapper::
-  Default.
+  Uses Mongo Mapper validations.
 :mongo_mapper_active_model::
   Uses ActiveModel::Validations. 
   
@@ -53,6 +56,19 @@ To add Devise to any of your models using the generator:
   rails generate mongo_mapper:devise MODEL
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+== Test Driven Development
+
+To expand on this project using TDD, requires the following setup.
+Clone this project into a container folder, fx projects, so you have fx projects/mm-devise
+In the same container folder, clone devise
+
+projects $ git clone [repo]\mm-devise.git
+projects $ git clone [repo]\devise.git 
+projects $ cd mm-devise
+projects $ bundle install
+projects $ rake test
+
 
 == TODO
 
