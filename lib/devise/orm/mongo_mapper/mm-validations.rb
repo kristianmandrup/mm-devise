@@ -6,7 +6,7 @@ module Validatable
       attr_accessor :default_error_messages       
       
       def default_error_message(msg, name)
-        default_error_messages[name] = msg         
+        default_error_messages[name]         
       end
     end
 
@@ -21,10 +21,10 @@ module Validatable
     # If the message is a Symbol, allow +default_error_message+ to generate
     # the message, including translation.
     def add(field_name, message)
-      if message.kind_of?(Symbol)
-        message = self.class.default_error_message(message, field_name)
-      end              
       fld_name = field_name.to_sym
+      if message.kind_of?(Symbol)
+        message = self.class.default_error_message(message, fld_name)
+      end                    
       errors[fld_name] = [] if errors[fld_name].nil?               
       existing_msg = errors[fld_name].include?(message)
       original_add(fld_name, message) unless existing_msg

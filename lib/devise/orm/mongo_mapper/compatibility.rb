@@ -56,7 +56,7 @@ module Devise
         end
 
         def update_attribute(name, value)
-          update_atributes(name => value)
+          update_attributes(name => value)
         end
         # 
         # def update_attributes(*args)
