@@ -36,6 +36,8 @@ module Devise
           end
           
           options.delete(:default) if options[:default].nil?
+
+          type = Time if type == DateTime
           
           if [:email, :encrypted_password, :password_salt].include? name            
             is_required = options.delete(:required)
