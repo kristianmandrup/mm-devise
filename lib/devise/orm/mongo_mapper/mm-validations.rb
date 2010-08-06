@@ -10,7 +10,7 @@ module Validatable
     end
 
     def self.default_error_message(key, field, *values)
-      field = field.humanize
+      field = field.to_s.humanize
       @@default_error_messages[key] % [field, *values].flatten
     end
       
@@ -26,7 +26,7 @@ module Validatable
     # the message, including translation.
     def add(field_name, message)      
       if message.kind_of?(Symbol)
-        message = self.class.default_error_message(message, fld_name)
+        message = self.class.default_error_message(message, field_name)
       end                    
       fld_name = field_name.to_sym
       errors[fld_name] = [] if errors[fld_name].nil?
