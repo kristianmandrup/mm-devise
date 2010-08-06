@@ -4,6 +4,23 @@ module Devise
       module Compatibility
         extend ActiveSupport::Concern
 
+        extend ActiveSupport::Concern
+        extend ActiveModel::Naming
+
+        include ActiveModel::Serializers::Xml
+        include ActiveModel::Serializers::JSON
+
+        def to_xml(options = {}, &block)
+          options[:except] ||= []
+          options[:except] << :_id
+
+          super options do |b|
+            b.id self.id
+            block.call(b) if block_given?
+          end
+        end
+
+
         module ClassMethods
           # Hooks for confirmable
           def before_create(*args)

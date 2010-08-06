@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class MongoMapperCompatibilityTest < ActiveSupport::TestCase
-  test 'respects raise_on_save_failure' do
+  test 'save only when valid' do
     user = new_user(:email => nil)
     assert user.invalid?
-    assert_raise do
-      user.save
-    end
+    user.save
+    assert !user.errors.empty?
 
     user = new_user
     assert user.valid?
