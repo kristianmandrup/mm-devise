@@ -2,14 +2,18 @@ module Validatable
   # Monkey-patch Validatable::Errors to support generation of error message from
   # a Symbol. 
   class Errors                 
-    class << self
-      attr_accessor :default_error_messages       
-      
-      def default_error_message(msg, name)
-        default_error_messages[name]         
-      end
+    @@default_error_messages = {}
+
+    # Holds a hash with all the default error messages that can be replaced by your own copy or localizations.
+    def self.default_error_messages=(default_error_messages)
+      @@default_error_messages = default_error_messages
     end
 
+    def self.default_error_message(key, field, *values)
+      field = field.humanize
+      @@default_error_messages[key] % [field, *values].flatten
+    end
+      
     # original add before monkey-patch
     # def add(attribute, message) #:nodoc:
     #   errors[attribute.to_sym] = [] if errors[attribute.to_sym].nil?
@@ -20,15 +24,14 @@ module Validatable
     
     # If the message is a Symbol, allow +default_error_message+ to generate
     # the message, including translation.
-    def add(field_name, message)
-      fld_name = field_name.to_sym
+    def add(field_name, message)      
       if message.kind_of?(Symbol)
         message = self.class.default_error_message(message, fld_name)
       end                    
-      errors[fld_name] = [] if errors[fld_name].nil?               
-      existing_msg = errors[fld_name].include?(message)
-      original_add(fld_name, message) unless existing_msg
-    end
+      fld_name = field_name.to_sym
+      errors[fld_name] = [] if errors[fld_name].nil?
+      original_add(fld_name, message) unless errors[fld_name].include?(message)
+    end        
   end
 end
 
@@ -64,5 +67,5 @@ Validatable::Errors.default_error_messages = {
   :primitive => 'must be of type %s',
   :not_found => 'not found',
   :already_confirmed => 'was already confirmed',
-  :not_locked => 'was not locked'
+  :not_locked => 'was not locked'  
 }

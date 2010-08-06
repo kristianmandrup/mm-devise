@@ -6,12 +6,8 @@ class User
 
   key :username, String
   key :facebook_token, String
-  timestamps!
+  timestamps!  
 
   include SharedUser
   include Shim     
-  
-  validates_uniqueness_of :email, :times => 1, :key => 'anything' 
-  validates_presence_of :email, :times => 1, :key => 'anything'
-
 end

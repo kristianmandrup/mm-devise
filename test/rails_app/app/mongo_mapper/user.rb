@@ -1,7 +1,6 @@
 require 'shared_user'
 
 class User
-  # extend Devise::Models
   include MongoMapper::Document
 
   key :username, String
@@ -10,9 +9,6 @@ class User
 
   include SharedUser
   include Shim
-
-  validates_uniqueness_of :email, :times => 1, :key => 'anything' 
-  validates_presence_of :email, :times => 1, :key => 'anything'
 
   unless DEVISE_ORM == :mongo_mapper_active_model
     before_validation :update_password_confirmation
