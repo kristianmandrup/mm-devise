@@ -53,12 +53,13 @@ begin
     gem.email = "jmorgan@morgancreative.net"
     gem.homepage = "http://github.com/kristianmandrup/mm-devise"
     gem.authors = ["Kristian Mandrup"]
-    gem.add_dependency 'mongo_mapper',   '>= 0.8.2'
-    gem.add_dependency 'jnunemaker-validatable', '>= 1.8.4'
-    # gem.add_dependency 'bson_ext',       '>= 1.0.4'
-    gem.add_dependency 'devise'
-    gem.add_dependency 'warden',         '~> 0.10.7'
-    gem.add_dependency 'bcrypt-ruby',    '~> 2.1.2'
+    gem.add_dependency 'mongo_mapper',            '>= 0.8.2'        
+    gem.add_dependency 'rails3-generators',       '>= 0.12.1'    
+    gem.add_dependency 'jnunemaker-validatable',  '>= 1.8.4'
+    gem.add_dependency 'bson_ext',                '>= 1.0.4'
+    gem.add_dependency 'devise',                  '>= 1.1.1'
+    gem.add_dependency 'warden',                  '~> 0.10.7'
+    gem.add_dependency 'bcrypt-ruby',             '~> 2.1.2'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

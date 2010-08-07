@@ -1,18 +1,5 @@
 = mm-devise
 
-== Note
-*Aug 6, 2010*
-
-This gem has been developed using Test Driven Development (see section at the bottom of this page for how to set it up for TDD).
-If you run `$ rake test`, you will see that there are still a few errors and failures that remain to be resolved 
-
-*51 failures, 4 errors*
- 
-Many of the failures are "repeat failures". There are only a few unique failures and errors that remain to be fixed, many just concerning error message translations.
-Please help fix these few errors :) 
-
-== Intro
-
 mm-devise will let you use devise (http://github.com/plataformatec/devise) with MongoMapper. 
 
 The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
@@ -25,8 +12,11 @@ The gem gives you the options of 2 ORM setups depending on what library you wish
   The advantage to this is ActiveModel's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
 
-mm-devise is intended for use with Rails 3 and devise 1.1. 
-It may work with earlier versions, but it's not been tested
+Currently only the mongo_mapper option has been tested. 
+
+There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released, most likely MongoMapper 1.0 (as mentioned by jnunemaker in a post).
+
+mm-devise is intended for use with Rails 3 and devise 1.1. It may work with earlier versions, but it's not been tested
 
 This README only covers dm-devise specifics. 
 Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
@@ -41,6 +31,11 @@ required (although devise version may differ)
   gem 'bson_ext',               '>= 1.0.4'
   gem 'devise',                 '~> 1.1.1'
   gem 'mm-devise',              '>= 1.1.0'
+  gem 'rails3-generators',      '>= 0.12.1'
+
+You can install http://github.com/indirect/rails3-generators which includes mongo_mapper Model generator
+
+  gem install rails3-generators
 
 Run the generator:
 
