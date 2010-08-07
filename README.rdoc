@@ -12,19 +12,20 @@ The gem gives you the options of 2 ORM setups depending on what library you wish
   The advantage to this is ActiveModel's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
 
-Currently only the mongo_mapper option has been tested. 
+Currently only the mongo_mapper option has been tested. Note if you run $ rake test, you will still get a few error and failures.
+This is not due to any error in mm-devise, but rather to a few "issues" with the devise tests themselves IMO. 
 
-There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released, most likely MongoMapper 1.0 (as mentioned by jnunemaker in a post).
+There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released.
+ActiveModel support will likely be part of MongoMapper 1.0 (as mentioned by jnunemaker in a post).
 
 mm-devise is intended for use with Rails 3 and devise 1.1. It may work with earlier versions, but it's not been tested
 
-This README only covers dm-devise specifics. 
+This README only covers mm-devise specifics. 
 Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
 
 == Installation
 
-Add devise, dm-devise and dm gems to your Gemfile. The following gems are
-required (although devise version may differ)
+Add devise, mm-devise and Mongo Mapper gems to your Gemfile. The following gems are required
 
   gem 'mongo_mapper',           '>= 0.8.2'
   gem 'jnunemaker-validatable', '>= 1.8.4'
@@ -36,6 +37,10 @@ required (although devise version may differ)
 You can install http://github.com/indirect/rails3-generators which includes mongo_mapper Model generator
 
   gem install rails3-generators
+  
+Alternatively use bundler to install all required gems in your rails app 
+
+  bundle install  
 
 Run the generator:
 
@@ -43,8 +48,7 @@ Run the generator:
 
 The generator will install an initializer which describes ALL Devise's
 configuration options and you MUST take a look at it. Make sure to specify
-either mongo_mapper or data_mapper_active_model
-(ActiveModel::Validations) as the orm in the configuration file.
+either mongo_mapper or mongo_mapper_active_model (ActiveModel::Validations) as the orm in the configuration file.
 
 To add Devise to any of your models using the generator:
 
@@ -52,18 +56,19 @@ To add Devise to any of your models using the generator:
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
 
-== Test Driven Development
+== Test Driven Development - extending this project
 
-To expand on this project using TDD, requires the following setup.
-Clone this project into a container folder, fx projects, so you have fx projects/mm-devise
-In the same container folder, clone devise
+To develop on this project using TDD, requires the following setup.
+Clone this project into a container folder, fx /projects, so you have fx /projects/mm-devise
+In the same container folder clone devise from github
+
+Example:
 
 projects $ git clone [repo]\mm-devise.git
 projects $ git clone [repo]\devise.git 
 projects $ cd mm-devise
 projects $ bundle install
 projects $ rake test
-
 
 == TODO
 
@@ -82,7 +87,13 @@ projects $ rake test
 
 == Maintainers
 
+Kristian Mandrup
+
 == Contributors
+
+Jared Morgan:
+  Created the dm-devise gem which was used as a template for the development of this gem
+  Also came with suggestions for a few critical fixes and improvements in the code. Thanks :)
 
 == Bugs and Feedback
 
@@ -92,6 +103,6 @@ http://github.com/kristianmandrup/mm-devise/issues
 
 == Copyright
 
-Copyright (c) 2010 Jared Morgan. See LICENSE for details.
+Copyright (c) 2010 Kristian Mandrup. See LICENSE for details.
 
-Note: I, Kristian Mandrup used dm-devise as a template for creating this gem.
+
