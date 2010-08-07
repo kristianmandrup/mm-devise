@@ -4,14 +4,14 @@
 
 *mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1* It may work with earlier versions, but it's not been tested
 
-This README only covers *mm-devise* specifics. Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
+This README only covers *mm-devise* specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
 ## Usage options
 
 The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
 
-* mongo_mapper - Uses MongoMapper validations 
-* mongo_mapper_active_model - Uses ActiveModel::Validations
+* *mongo_mapper* - Uses MongoMapper validations 
+* *mongo_mapper_active_model* - Uses ActiveModel::Validations
 
 The advantage to this is ActiveModel's I18n support for error messages, andit uses the same validations lib as devise does by default.
 
@@ -23,7 +23,7 @@ ActiveModel support will likely be part of *MongoMapper 1.0* (as mentioned by jn
 
 ## Installation
 
-Add devise, mm-devise and MongoMapper gems to your Gemfile (your Rails app Gemfile). The following gems are required
+Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app Gemfile). The following gems are required
 
   gem 'mongo_mapper',           '>= 0.8.2'
   gem 'jnunemaker-validatable', '>= 1.8.4'
@@ -32,17 +32,17 @@ Add devise, mm-devise and MongoMapper gems to your Gemfile (your Rails app Gemfi
   gem 'mm-devise',              '>= 1.1.0'
   gem 'rails3-generators',      '>= 0.12.1' # optional
 
-You can install http://github.com/indirect/rails3-generators which includes mongo_mapper Model generator
+You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a mongo_mapper Model generator
 
-  gem install rails3-generators
+<pre>  gem install rails3-generators</pre>
   
-Alternatively use bundler to install all required gems in your rails app 
+Alternatively use bundler to install all required gems in your Rails 3 app 
 
-  bundle install  
+<pre>  bundle install</pre>
 
 Run the generator:
 
-  rails generate devise:install
+<pre>  rails generate devise:install</pre>
 
 The generator will install an initializer which describes ALL Devise's
 configuration options and you MUST take a look at it. Make sure to specify
@@ -51,13 +51,13 @@ as the orm in the configuration file.
 
 To add Devise to any of your models using the generator:
 
-  rails generate mongo_mapper:devise MODEL
-  
+<pre>  rails generate mongo_mapper:devise MODEL</pre>  
+
 Example: create a User model for use with Devise  
 
-  rails generate mongo_mapper:devise User
+<pre>  rails generate mongo_mapper:devise User</pre>
 
-Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
+Read the README for devise at [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
 ## Test Driven Development - extending this project
 
@@ -67,7 +67,7 @@ In the same container folder clone <code>devise</code> from github
 
 Example:
 
-  projects $ git clone [repo]\mm-devise.git
+<pre>  projects $ git clone [repo]\mm-devise.git
   projects $ git clone [repo]\devise.git 
   projects $ cd mm-devise
   projects $ bundle install
@@ -97,15 +97,12 @@ This is NOT due to any errors in <code>mm-devise</code>, but rather to a few "is
 
 ## Contributors
 
-*Jared Morgan*
-Created the dm-devise gem which was used as a template for the development of this gem
-Also came with suggestions for a few critical fixes and improvements in the code. Thanks :)
+*Jared Morgan* - Created the dm-devise gem which was used as a template for the development of this gem.
+Also made suggestions for a few critical fixes and improvements in the code. Thanks :)
 
 ## Bugs and Feedback
 
-For mm-devise specific issues, please create an issue on GitHub at:
-
-[mm-devise issues](http://github.com/kristianmandrup/mm-devise/issues)
+For *mm-devise* specific issues, please create an issue on GitHub at: [mm-devise issues](http://github.com/kristianmandrup/mm-devise/issues)
 
 ## Copyright
 
