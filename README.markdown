@@ -2,36 +2,35 @@
 
 *mm-devise* will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper). 
 
+*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1* It may work with earlier versions, but it's not been tested
+
+This README only covers *mm-devise* specifics. Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
+
+## Usage options
+
 The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
 
-:mongo_mapper::
-  Uses MongoMapper validations.
-:mongo_mapper_active_model::
-  Uses ActiveModel::Validations. 
-  
-  The advantage to this is ActiveModel's I18n support for error messages, and
-  it uses the same validations lib as devise does by default.
+* mongo_mapper - Uses MongoMapper validations 
+* mongo_mapper_active_model - Uses ActiveModel::Validations
+
+The advantage to this is ActiveModel's I18n support for error messages, andit uses the same validations lib as devise does by default.
+
+## ActiveModel compatibility 
 
 Currently only the <code>mongo_mapper</code> option has been tested. 
-
 There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released.
 ActiveModel support will likely be part of *MongoMapper 1.0* (as mentioned by jnunemaker in a post).
 
-*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1* It may work with earlier versions, but it's not been tested
-
-This README only covers *mm-devise* specifics. 
-Make sure to read the devise README http://github.com/plataformatec/devise/blob/master/README.rdoc
-
 ## Installation
 
-Add devise, mm-devise and MongoMapper gems to your Gemfile. The following gems are required
+Add devise, mm-devise and MongoMapper gems to your Gemfile (your Rails app Gemfile). The following gems are required
 
   gem 'mongo_mapper',           '>= 0.8.2'
   gem 'jnunemaker-validatable', '>= 1.8.4'
   gem 'bson_ext',               '>= 1.0.4'
   gem 'devise',                 '~> 1.1.1'
   gem 'mm-devise',              '>= 1.1.0'
-  gem 'rails3-generators',      '>= 0.12.1'
+  gem 'rails3-generators',      '>= 0.12.1' # optional
 
 You can install http://github.com/indirect/rails3-generators which includes mongo_mapper Model generator
 
@@ -53,6 +52,10 @@ as the orm in the configuration file.
 To add Devise to any of your models using the generator:
 
   rails generate mongo_mapper:devise MODEL
+  
+Example: create a User model for use with Devise  
+
+  rails generate mongo_mapper:devise User
 
 Read the README for devise at http://github.com/plataformatec/devise/blob/master/README.rdoc
 
