@@ -2,7 +2,7 @@
 
 *mm-devise* will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper). 
 
-*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1* It may work with earlier versions, but it's not been tested
+*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1*. It may work with earlier versions of devise, but it's not been tested.
 
 This README only covers *mm-devise* specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
@@ -13,7 +13,7 @@ The gem gives you the options of 2 ORM setups depending on what library you wish
 * *mongo_mapper* - Uses MongoMapper validations 
 * *mongo_mapper_active_model* - Uses ActiveModel::Validations
 
-The advantage to this is ActiveModel's I18n support for error messages, andit uses the same validations lib as devise does by default.
+The advantage to this is ActiveModel's I18n support for error messages, and it uses the same validations lib as devise does by default.
 
 ## ActiveModel compatibility 
 
@@ -25,24 +25,24 @@ ActiveModel support will likely be part of *MongoMapper 1.0* (as mentioned by jn
 
 Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app Gemfile). The following gems are required
 
-  gem 'mongo_mapper',           '>= 0.8.2'
+<pre>  gem 'mongo_mapper',           '>= 0.8.2'
   gem 'jnunemaker-validatable', '>= 1.8.4'
   gem 'bson_ext',               '>= 1.0.4'
   gem 'devise',                 '~> 1.1.1'
   gem 'mm-devise',              '>= 1.1.0'
-  gem 'rails3-generators',      '>= 0.12.1' # optional
+  gem 'rails3-generators',      '>= 0.12.1' # optional</pre>
 
-You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a mongo_mapper Model generator
+You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a *mongo_mapper* Model generator
 
-<pre>  gem install rails3-generators</pre>
+<pre>gem install rails3-generators</pre>
   
 Alternatively use bundler to install all required gems in your Rails 3 app 
 
-<pre>  bundle install</pre>
+<pre>bundle install</pre>
 
 Run the generator:
 
-<pre>  rails generate devise:install</pre>
+<pre>rails generate devise:install</pre>
 
 The generator will install an initializer which describes ALL Devise's
 configuration options and you MUST take a look at it. Make sure to specify
@@ -51,11 +51,11 @@ as the orm in the configuration file.
 
 To add Devise to any of your models using the generator:
 
-<pre>  rails generate mongo_mapper:devise MODEL</pre>  
+<pre>rails generate mongo_mapper:devise MODEL</pre>  
 
 Example: create a User model for use with Devise  
 
-<pre>  rails generate mongo_mapper:devise User</pre>
+<pre>rails generate mongo_mapper:devise User</pre>
 
 Read the README for devise at [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
@@ -67,19 +67,14 @@ In the same container folder clone <code>devise</code> from github
 
 Example:
 
-<pre>  projects $ git clone [repo]\mm-devise.git
-  projects $ git clone [repo]\devise.git 
-  projects $ cd mm-devise
-  projects $ bundle install
-  projects $ rake test</pre>
+<pre>git clone http://github.com/kristianmandrup/mm-devise.git
+git clone http://github.com/plataformatec/devise.git 
+cd mm-devise
+bundle install
+rake test</pre>
 
-If you run <code>$ rake test</code>, you will currently (Aug 6) still get a few errors and failures.
-This is NOT due to any errors in <code>mm-devise</code>, but rather to a few "issues" with the devise tests themselves IMO. 
-
-## TODO
-
-* Example app
-* Rails templates
+When you run <code>rake test</code>, you will (as of Aug 6, 2010) still get a few errors and failures.
+This is NOT due to any errors in <code>mm-devise</code> but rather due to a few "issues" with a few of the devise tests themselves IMO. 
 
 ## Note on Patches/Pull Requests
  
