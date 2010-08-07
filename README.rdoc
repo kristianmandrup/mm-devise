@@ -12,7 +12,7 @@ The gem gives you the options of 2 ORM setups depending on what library you wish
   The advantage to this is ActiveModel's I18n support for error messages, and
   it uses the same validations lib as devise does by default.
 
-Currently only the mongo_mapper option has been tested. Note if you run $ rake test, you will still get a few error and failures.
+Currently only the mongo_mapper option has been tested. Note if you run `$ rake test`, you will still get a few error and failures.
 This is not due to any error in mm-devise, but rather to a few "issues" with the devise tests themselves IMO. 
 
 There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released.
@@ -64,11 +64,11 @@ In the same container folder clone devise from github
 
 Example:
 
-projects $ git clone [repo]\mm-devise.git
-projects $ git clone [repo]\devise.git 
-projects $ cd mm-devise
-projects $ bundle install
-projects $ rake test
+  projects $ git clone [repo]\mm-devise.git
+  projects $ git clone [repo]\devise.git 
+  projects $ cd mm-devise
+  projects $ bundle install
+  projects $ rake test</pre>
 
 == TODO
 
