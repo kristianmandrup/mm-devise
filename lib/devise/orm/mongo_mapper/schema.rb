@@ -36,43 +36,50 @@ module Devise
           end
           
           options.delete(:default) if options[:default].nil?
+          required_option = options.delete(:required)          
+          length_option = options.delete(:length)          
 
-          type = Time if type == DateTime
-          
-          is_required = options.delete(:required)
-          is_length = options.delete(:length)
-
-          # puts "key #{name.inspect}, options: #{options.inspect}, required: #{is_required}"
+          type = Time if type == DateTime         
 
           key name, type, options
-
-          v_util = ::MongoMapper::ValidationUtil
-          v_util.inc_counter
-
-          if name == :email
-            key = "unique_#{name}_#{v_util.counter}"     
-            validates_uniqueness_of name.to_sym, :key => key
-          end
           
-          if is_length
-            key = "length_#{name}_#{v_util.counter}"     
-            options = case is_length
-            when Fixnum
-              {:maximum => is_length}
-            when Hash
-              is_length
-            else
-              raise ArgumentError, "length validation option must be either a Fixnum or Hash"                                
-            end            
-            options[:key] = key            
-            validates_length_of name.to_sym, options
-          end
+          counter = ::MongoMapper::ValidationUtil.inc_counter
+        
+          handle_email(name, counter) if name == :email          
+          handle_length(name, counter, length_option) if length_option
+          handle_required(name, counter) if required_option                               
+        end  
+        
+        protected
 
-          if is_required                               
-            key = "presence_#{name}_#{v_util.counter}"
-            validates_presence_of name.to_sym, :key => key
-          end
+        def make_key prefix, name, counter
+          "#{prefix}_#{name}_#{counter}"
         end
+
+        def handle_required name, counter          
+          key = make_key :presence, name, counter 
+          validates_presence_of name.to_sym, :key => key
+        end
+
+        def handle_email name, counter            
+          key = make_key :unique, name, counter
+          validates_uniqueness_of name.to_sym, :key => key
+        end
+
+        def handle_length name, counter, length_option
+          key = make_key :length, name, counter
+          options = case length_option
+          when Fixnum
+            {:maximum => length_option}
+          when Hash
+            length_option
+          else
+            raise ArgumentError, "length validation option must be either a Fixnum or Hash"                                
+          end            
+          options[:key] = key            
+          
+          validates_length_of name.to_sym, options
+        end        
       end
     end
   end
