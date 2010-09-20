@@ -1,3 +1,5 @@
+require 'validatable'
+
 module Validatable
   # Monkey-patch Validatable::Errors to support generation of error message from
   # a Symbol. 

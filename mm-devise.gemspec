@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = %q{2010-08-07}
+  s.date = %q{2010-09-20}
   s.description = %q{dm-devise adds MongoMapper support to devise (http://github.com/plataformatec/devise) for authentication support for Rails}
   s.email = %q{jmorgan@morgancreative.net}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     ".document",
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
      "Gemfile",
      "Gemfile.lock",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "Rakefile",
      "lib/devise/orm/mongo_mapper.rb",
      "lib/devise/orm/mongo_mapper/compatibility.rb",
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "lib/devise/orm/mongo_mapper_active_model.rb",
      "lib/generators/mongo_mapper/devise_generator.rb",
      "lib/mm-devise/version.rb",
+     "mm-devise.gemspec",
      "test/mongo_mapper/compatibility_test.rb",
      "test/orm/mongo_mapper.rb",
      "test/orm/mongo_mapper_active_model.rb",
