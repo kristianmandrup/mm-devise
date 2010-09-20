@@ -1,3 +1,4 @@
+require 'mongo_mapper'
 require 'devise/orm/mongo_mapper/compatibility'
 require 'devise/orm/mongo_mapper/schema'
 require 'devise/orm/mongo_mapper/date_time'
