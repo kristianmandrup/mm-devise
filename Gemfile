@@ -1,15 +1,24 @@
 source :rubygems
+source 'http://gems.github.com/'
 
 gem "rails", :git => "git://github.com/rails/rails.git"
 
-gem "warden", "0.10.7"
-gem "webrat", "0.7.0"
-gem "mocha", :require => false
-gem "bcrypt-ruby", :require => "bcrypt"
-gem "oauth2"
+group :test do
+  gem "test-unit",  "~> 2.0.9"
+  gem "webrat",     "~> 0.7.0"
+  gem "mocha",      "~> 0.9.8", :require => false
+end
 
-gem 'mongo_mapper',           '>= 0.8.2'
-gem 'rails3-generators',      '>= 0.12.1'
-gem 'jnunemaker-validatable', '>= 1.8.4'
-gem 'bson_ext',               '>= 1.0.4'
+group :default do
+  gem "webrat",     "~> 0.7.0"
+
+  gem "bcrypt-ruby", :require => "bcrypt"
+  gem "oauth2"
+  gem "warden",                 "~> 0.10.7"  
+  gem 'mongo_mapper',           '~> 0.8.4'
+  gem 'sugar-high',             '~> 0.2.10'
+  gem 'rails3-generators',      '~> 0.13.0'
+  gem 'jnunemaker-validatable', '~> 1.8.1'
+  gem 'bson_ext',               '~> 1.0.7'
+end
 

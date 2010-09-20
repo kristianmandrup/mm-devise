@@ -49,6 +49,10 @@ configuration options and you MUST take a look at it. Make sure to specify
 either <code>mongo_mapper</code> or <code>mongo_mapper_active_model</code> (ActiveModel::Validations) 
 as the orm in the configuration file.
 
+  require 'devise/orm/mongo_mapper'
+
+Note: The model generator should do this automatically.
+
 To add Devise to any of your models using the generator:
 
 <pre>rails generate mongo_mapper:devise MODEL</pre>  
