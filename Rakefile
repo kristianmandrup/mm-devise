@@ -55,7 +55,7 @@ begin
     gem.authors = ["Kristian Mandrup"]
     gem.add_dependency 'mongo_mapper',            '~> 0.8.4'        
     gem.add_dependency 'bson_ext',                '~> 1.0.4'
-    gem.add_dependency 'rails3-generators',       '~> 0.13.0'    
+    gem.add_dependency 'rails3-generators',       '>= 0.13.0'    
     gem.add_dependency 'jnunemaker-validatable',  '~> 1.8.1'
     gem.add_dependency 'devise',                  '~> 1.2.0'
     gem.add_dependency 'sugar-high',              '~> 0.2.10'
