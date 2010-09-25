@@ -57,7 +57,7 @@ begin
     gem.add_dependency 'bson_ext',                '~> 1.0.4'
     gem.add_dependency 'rails3-generators',       '>= 0.13.0'    
     gem.add_dependency 'jnunemaker-validatable',  '~> 1.8.1'
-    gem.add_dependency 'devise',                  '~> 1.2.0'
+    gem.add_dependency 'devise',                  '>= 1.1.1'
     gem.add_dependency 'sugar-high',              '~> 0.2.10'
     gem.add_dependency 'warden',                  '~> 0.10.7'
     gem.add_dependency 'bcrypt-ruby',             '~> 2.1.2'
