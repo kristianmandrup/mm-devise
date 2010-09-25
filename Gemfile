@@ -17,7 +17,7 @@ group :default do
   gem "warden",                 "~> 0.10.7"  
   gem 'mongo_mapper',           '~> 0.8.4'
   gem 'sugar-high',             '~> 0.2.10'
-  gem 'rails3-generators',      '~> 0.13.0'
+  gem 'rails3-generators',      '>= 0.13.0'
   gem 'jnunemaker-validatable', '~> 1.8.1'
   gem 'bson_ext',               '~> 1.0.7'
 end
