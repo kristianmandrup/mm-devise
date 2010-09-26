@@ -14,7 +14,7 @@ group :default do
 
   gem "bcrypt-ruby", :require => "bcrypt"
   gem "oauth2"
-  gem "warden",                 "~> 0.10.7"  
+  gem "warden",                 "~> 1.0.0"  
   gem 'mongo_mapper',           '~> 0.8.4'
   gem 'sugar-high',             '~> 0.2.10'
   gem 'devise',                 '>= 1.1.1'
