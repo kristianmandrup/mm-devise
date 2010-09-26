@@ -78,7 +78,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<jnunemaker-validatable>, ["~> 1.8.1"])
       s.add_runtime_dependency(%q<devise>, [">= 1.1.1"])
       s.add_runtime_dependency(%q<sugar-high>, ["~> 0.2.10"])
-      s.add_runtime_dependency(%q<warden>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<warden>, [">= 0.10.7"])
       s.add_runtime_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
     else
       s.add_dependency(%q<mongo_mapper>, ["~> 0.8.4"])
@@ -87,7 +87,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jnunemaker-validatable>, ["~> 1.8.1"])
       s.add_dependency(%q<devise>, [">= 1.1.1"])
       s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
-      s.add_dependency(%q<warden>, ["~> 1.0.0"])
+      s.add_dependency(%q<warden>, [">= 0.10.7"])
       s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
     end
   else
@@ -97,7 +97,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jnunemaker-validatable>, ["~> 1.8.1"])
     s.add_dependency(%q<devise>, [">= 1.1.1"])
     s.add_dependency(%q<sugar-high>, ["~> 0.2.10"])
-    s.add_dependency(%q<warden>, ["~> 1.0.0"])
+    s.add_dependency(%q<warden>, [">= 0.10.7"])
     s.add_dependency(%q<bcrypt-ruby>, ["~> 2.1.2"])
   end
 end
