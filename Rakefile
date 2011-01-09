@@ -9,10 +9,6 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require File.join(File.dirname(__FILE__), 'lib', 'mm-devise', 'version')
 
-
-
-
-
 desc 'Run Devise tests using MongoMapper. Specify path to devise with DEVISE_PATH'
 
 

@@ -2,7 +2,7 @@
 
 *mm-devise* will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper). 
 
-*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.1*. It may work with earlier versions of devise, but it's not been tested.
+*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.5* and above. It may work with earlier versions of devise.
 
 This README only covers *mm-devise* specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
@@ -27,10 +27,10 @@ Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app
 
 <pre>  gem 'mongo_mapper',           '>= 0.8.2'
   gem 'jnunemaker-validatable', '>= 1.8.4'
-  gem 'bson_ext',               '>= 1.0.4'
-  gem 'devise',                 '~> 1.1.1'
-  gem 'mm-devise',              '>= 1.1.0'
-  gem 'rails3-generators',      '>= 0.12.1' # optional</pre>
+  gem 'bson_ext',               '>= 1.0.9'
+  gem 'devise',                 '>= 1.1.1'
+  gem 'mm-devise',              '>= 1.1.8'
+  # gem 'rails3-generators',      '>= 0.14.0' # optional</pre>
 
 You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a *mongo_mapper* Model generator
 
@@ -49,7 +49,7 @@ configuration options and you MUST take a look at it. Make sure to specify
 either <code>mongo_mapper</code> or <code>mongo_mapper_active_model</code> (ActiveModel::Validations) 
 as the orm in the configuration file.
 
-  require 'devise/orm/mongo_mapper'
+<pre>require 'devise/orm/mongo_mapper'</pre>  
 
 Note: The model generator should do this automatically.
 
@@ -96,6 +96,7 @@ This is NOT due to any errors in <code>mm-devise</code> but rather due to a few 
 
 ## Contributors
 
+*bhbryant* - Fixed some issues and updated gem (Jan 2011)
 *Jared Morgan* - Created the dm-devise gem which was used as a template for the development of this gem.
 Also made suggestions for a few critical fixes and improvements in the code. Thanks :)
 

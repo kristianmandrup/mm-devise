@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mm-devise}
-  s.version = "1.1.7"
+  s.version = "1.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = %q{2010-11-27}
+  s.date = %q{2011-01-11}
   s.description = %q{dm-devise adds MongoMapper support to devise (http://github.com/plataformatec/devise) for authentication support for Rails}
   s.email = %q{jmorgan@morgancreative.net}
   s.extra_rdoc_files = [
