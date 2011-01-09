@@ -32,7 +32,7 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-task :test => :check_dependencies
+task :test 
 
 desc 'Generate documentation for dm-devise.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
