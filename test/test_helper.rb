@@ -8,7 +8,7 @@ require "rails_app/config/environment"
 require "rails/test_help"
 require "orm/#{DEVISE_ORM}"
 
-MongoMapper.connection = Mongo::Connection.new('localhost')
+MongoMapper.connection = Mongo::Connection.new(ENV['MONGO_RUBY_DRIVER_HOST'] || 'localhost')
 MongoMapper.database = 'mm-devise-db'
 
 I18n.load_path << "#{DEVISE_PATH}/test/support/locale/en.yml"
@@ -19,7 +19,7 @@ Webrat.configure do |config|
   config.open_error_files = false
 end
 
-Devise::Oauth.test_mode!
+#Devise::Oauth.test_mode!
 
 # Add support to load paths so we can overwrite broken webrat setup
 $:.unshift "#{DEVISE_PATH}/test/support"

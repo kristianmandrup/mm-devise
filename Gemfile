@@ -1,7 +1,8 @@
 source :rubygems
 source 'http://gems.github.com/'
 
-gem "rails", :git => "git://github.com/rails/rails.git"
+gem "rails"
+
 
 group :test do
   gem "test-unit",  "~> 2.0.9"
@@ -21,5 +22,10 @@ group :default do
   gem 'rails3-generators',      '>= 0.13.0'
   gem 'jnunemaker-validatable', '~> 1.8.1'
   gem 'bson_ext',               '>= 1.0.9'
+  
+  gem "orm_adapter"
+  gem "omniauth"
+  
+
 end
 

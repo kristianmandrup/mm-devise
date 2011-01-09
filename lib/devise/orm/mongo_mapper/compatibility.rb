@@ -63,7 +63,7 @@ module Devise
         # def changed?
         #   dirty?
         # end
-
+=begin
         def save(options=nil)
           if options.is_a?(Hash) && options[:validate] == false
             save!
@@ -79,7 +79,7 @@ module Devise
         # def update_attributes(*args)
         #   update(*args)
         # end
-
+=end
         def invalid?
           !valid?
         end
