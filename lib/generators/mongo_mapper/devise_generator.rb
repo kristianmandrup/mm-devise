@@ -1,5 +1,6 @@
 require 'generators/devise/orm_helpers'
 require 'sugar-high/file'
+require 'sugar-high/file_mutate'
 
 module MongoMapper
   module Generators
