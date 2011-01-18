@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mm-devise}
-  s.version = "1.1.8"
+  s.version = "1.1.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -86,7 +86,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rails3-generators>, [">= 0.13.0"])
       s.add_dependency(%q<jnunemaker-validatable>, [">= 1.8.1"])
       s.add_dependency(%q<devise>, [">= 1.1.1"])
-      s.add_dependency(%q<sugar-high>, ["~> 0.3.0"])
+      s.add_dependency(%q<sugar-high>, ["~> 0.3.4"])
       s.add_dependency(%q<warden>, [">= 0.10.7"])
       s.add_dependency(%q<bcrypt-ruby>, [">= 2.1.2"])
     end

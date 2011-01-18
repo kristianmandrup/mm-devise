@@ -80,6 +80,14 @@ rake test</pre>
 When you run <code>rake test</code>, you will (as of Aug 6, 2010) still get a few errors and failures.
 This is NOT due to any errors in <code>mm-devise</code> but rather due to a few "issues" with a few of the devise tests themselves IMO. 
 
+## Gem install
+
+<pre>$ rake install</pre>
+
+## Gem release (push to RubyGems)
+
+<pre>$ gem push pkg/mm-devis-xxxx.gem</pre>
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
