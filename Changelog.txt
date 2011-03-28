@@ -1,0 +1,3 @@
+March 28, 2011
+---
+Merged with digioi/master to be compatible with MongoMapper 0.9 
