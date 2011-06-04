@@ -2,9 +2,13 @@
 
 *mm-devise* will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper). 
 
-*mm-devise* is intended for use with *Rails 3* and *Devise 1.1.5* and above. It may work with earlier versions of devise.
+*mm-devise* is intended for use with *Rails 3+* and *Devise 1.2* and above. It may work with earlier versions of devise.
 
 This README only covers *mm-devise* specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
+
+## Status update, June 2011
+
+Recently upgraded to (hopefully!) support Devise > 1.2 and MongoMapper 0.9.0. 
 
 ## Usage options
 
@@ -27,16 +31,11 @@ Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app
 
 <pre>  gem 'mongo_mapper',           '>= 0.9.0'
   gem 'jnunemaker-validatable', '>= 1.8.4'
-  gem 'bson_ext',               '>= 1.3'
   gem 'devise',                 '>= 1.2'
   gem 'mm-devise',              '>= 1.2'
-  # gem 'rails3-generators',      '>= 0.14.0' # optional</pre>
+</pre>
 
-You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a *mongo_mapper* Model generator
-
-<pre>gem install rails3-generators</pre>
-  
-Alternatively use bundler to install all required gems in your Rails 3 app 
+Use bundler to install all required gems in your Rails 3 app 
 
 <pre>bundle install</pre>
 
@@ -48,6 +47,8 @@ The generator will install an initializer which describes ALL Devise's
 configuration options and you MUST take a look at it. Make sure to specify
 either <code>mongo_mapper</code> or <code>mongo_mapper_active_model</code> (ActiveModel::Validations) 
 as the orm in the configuration file.
+
+Note: Is this still required in recent versions of Devise > 1.2 ?
 
 <pre>require 'devise/orm/mongo_mapper'</pre>  
 
