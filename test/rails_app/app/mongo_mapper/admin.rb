@@ -2,11 +2,9 @@ require 'shared_admin'
 
 class Admin
   include MongoMapper::Document
-
-  key :username, String
-
-  timestamps!
-
-  include SharedAdmin
   include Shim
+  include SharedAdmin
+
+  key :remember_token, String
+  timestamps!
 end
