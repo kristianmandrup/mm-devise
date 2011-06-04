@@ -1,17 +1,15 @@
 source :rubygems
-source 'http://gems.github.com/'
-
-gem "rails"
 
 
 group :test do
   gem "test-unit",  "~> 2.0.9"
-  gem "webrat",     "~> 0.7.0"
+  gem "webrat",     "~> 0.7.2"
   gem "mocha",      "~> 0.9.8", :require => false
 end
 
 group :default do
-  gem "webrat",     "~> 0.7.0"
+  gem "rails", "~> 3.0.7"
+  gem "webrat",     "~> 0.7.2"
 
   gem "bcrypt-ruby", :require => "bcrypt"
   gem "oauth2"
@@ -22,10 +20,15 @@ group :default do
   gem 'rails3-generators',      '>= 0.13.0'
   gem 'jnunemaker-validatable', '~> 1.8.1'
   gem 'bson_ext',               '>= 1.0.9'
-  
+
+  gem 'rake',                   '0.8.7'
   gem "orm_adapter"
-  gem "omniauth"
-  
+  gem "oa-oauth", '~> 0.2.0', :require => "omniauth/oauth"
+  gem "oa-openid", '~> 0.2.0', :require => "omniauth/openid"
+
+  platforms :mri_18 do
+    gem "SystemTimer"
+  end
 
 end
 
