@@ -11,10 +11,7 @@ group :default do
   gem "rails", "~> 3.0.7"
   gem "webrat",     "~> 0.7.2"
 
-  gem "bcrypt-ruby", :require => "bcrypt"
-  gem "oauth2"
-  gem "warden",                 ">= 0.10.7"  
-  gem 'mongo_mapper',           '>= 0.8.4'
+  gem 'mongo_mapper',           '0.9.0'
   gem 'sugar-high',             '~> 0.3.4'
   gem 'devise',                 '>= 1.1.1'
   gem 'rails3-generators',      '>= 0.13.0'
