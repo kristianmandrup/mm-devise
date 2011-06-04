@@ -1,5 +1,5 @@
 module MongoMapper
   module Devise
-    VERSION = '1.1.10'.freeze
+    VERSION = '1.2' #.freeze
   end
 end

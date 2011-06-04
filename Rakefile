@@ -1,6 +1,8 @@
 # encoding: UTF-8
 
 require 'rake'
+include Rake::DSL if defined?(Rake::DSL)
+
 require 'bundler'
 Bundler::GemHelper.install_tasks
 

@@ -25,11 +25,11 @@ ActiveModel support will likely be part of *MongoMapper 1.0* (as mentioned by jn
 
 Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app Gemfile). The following gems are required
 
-<pre>  gem 'mongo_mapper',           '>= 0.8.2'
+<pre>  gem 'mongo_mapper',           '>= 0.9.0'
   gem 'jnunemaker-validatable', '>= 1.8.4'
-  gem 'bson_ext',               '>= 1.0.9'
-  gem 'devise',                 '>= 1.1.1'
-  gem 'mm-devise',              '>= 1.1.8'
+  gem 'bson_ext',               '>= 1.3'
+  gem 'devise',                 '>= 1.2'
+  gem 'mm-devise',              '>= 1.2'
   # gem 'rails3-generators',      '>= 0.14.0' # optional</pre>
 
 You can install [rails3-generators](http://github.com/indirect/rails3-generators) which includes a *mongo_mapper* Model generator
@@ -77,9 +77,6 @@ cd mm-devise
 bundle install
 rake test</pre>
 
-When you run <code>rake test</code>, you will (as of Aug 6, 2010) still get a few errors and failures.
-This is NOT due to any errors in <code>mm-devise</code> but rather due to a few "issues" with a few of the devise tests themselves IMO. 
-
 ## Gem install
 
 <pre>$ rake install</pre>
@@ -104,6 +101,7 @@ This is NOT due to any errors in <code>mm-devise</code> but rather due to a few 
 
 ## Contributors
 
+*bmarini* - Updated to support MongoMapper 0.9 (June 2011)
 *bhbryant* - Fixed some issues and updated gem (Jan 2011)
 *Jared Morgan* - Created the dm-devise gem which was used as a template for the development of this gem.
 Also made suggestions for a few critical fixes and improvements in the code. Thanks :)
