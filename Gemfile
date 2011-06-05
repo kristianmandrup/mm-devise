@@ -11,9 +11,7 @@ group :default do
   gem "webrat",     "~> 0.7.2"
 
   gem 'mongo_mapper',           '~> 0.9.0'
-  gem 'sugar-high',             '~> 0.4.3'
   gem 'devise',                 '>= 1.2.0'
-  # gem 'rails3-generators',      '>= 0.14.0'
   gem 'bson_ext',               '>= 1.2.0'
 
   gem 'rake',                   '>= 0.8.7'
