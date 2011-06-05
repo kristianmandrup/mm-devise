@@ -16,8 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'mongo_mapper', '>= 0.9.0'
   s.add_dependency 'devise', '>= 1.2'
-  # s.add_dependency 'rails3-generators', '>= 0.14.0'
-  s.add_dependency 'sugar-high', '~> 0.4.3'
   s.add_dependency "SystemTimer", "~> 1.2" if RUBY_VERSION < "1.9"
-
 end
