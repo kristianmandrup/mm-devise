@@ -12,7 +12,7 @@ Recently upgraded to (hopefully!) support Devise > 1.2 and MongoMapper 0.9.0.
 
 ## Installation
 
-1. Add *devise*, *mm-devise* and *mongo_mapper* gems to your Gemfile (your Rails app Gemfile).
+Add `devise`, `mm-devise` and `mongo_mapper` gems to your Gemfile (your Rails app Gemfile).
 
     gem 'mongo_mapper',           '~> 0.9.0'
     # You'll want this to for better mongo driver performance
@@ -21,11 +21,11 @@ Recently upgraded to (hopefully!) support Devise > 1.2 and MongoMapper 0.9.0.
     gem 'devise',                 '~> 1.3.4'
     gem 'mm-devise',              '~> 1.2.0'
 
-2. Use bundler to install all required gems in your Rails 3 app
+Use bundler to install all required gems in your Rails 3 app
 
     bundle install
 
-3. Run the devise install generator, followed by the mm-devise model generator:
+Run the devise install generator, followed by the mm-devise model generator:
 
     rails generate devise:install
     rails generate mongo_mapper:devise MODEL
