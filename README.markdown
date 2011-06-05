@@ -1,66 +1,50 @@
 # MongoMapper for Devise
 
-*mm-devise* will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper). 
+`mm-devise` will let you use [devise](http://github.com/plataformatec/devise) with [MongoMapper](http://github.com/jnunemaker/mongomapper).
 
-*mm-devise* is intended for use with *Rails 3+* and *Devise 1.2* and above. It may work with earlier versions of devise.
+`mm-devise` is intended for use with `Rails 3+` and `Devise 1.2` and above. It may work with earlier versions of devise.
 
-This README only covers *mm-devise* specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
+This README only covers `mm-devise` specifics. Make sure to read the [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
 ## Status update, June 2011
 
-Recently upgraded to (hopefully!) support Devise > 1.2 and MongoMapper 0.9.0. 
-
-## Usage options
-
-The gem gives you the options of 2 ORM setups depending on what library you wish to use for validations:   
-
-* *mongo_mapper* - Uses MongoMapper validations 
-* *mongo_mapper_active_model* - Uses ActiveModel::Validations
-
-The advantage to this is ActiveModel's I18n support for error messages, and it uses the same validations lib as devise does by default.
-
-## ActiveModel compatibility 
-
-Currently only the <code>mongo_mapper</code> option has been tested. 
-There should be full ActiveModel support in a future version of MongoMapper, after Rails 3 is released.
-ActiveModel support will likely be part of *MongoMapper 1.0* (as mentioned by jnunemaker in a post).
+Recently upgraded to (hopefully!) support Devise > 1.2 and MongoMapper 0.9.0.
 
 ## Installation
 
-Add *devise*, *mm-devise* and *MongoMapper* gems to your Gemfile (your Rails app Gemfile). The following gems are required
+1. Add *devise*, *mm-devise* and *mongo_mapper* gems to your Gemfile (your Rails app Gemfile).
 
-<pre>  gem 'mongo_mapper',           '>= 0.9.0'
-  gem 'jnunemaker-validatable', '>= 1.8.4'
-  gem 'devise',                 '>= 1.2'
-  gem 'mm-devise',              '>= 1.2'
-</pre>
+    gem 'mongo_mapper',           '~> 0.9.0'
+    # You'll want this to for better mongo driver performance
+    gem 'bson_ext'
 
-Use bundler to install all required gems in your Rails 3 app 
+    gem 'devise',                 '~> 1.3.4'
+    gem 'mm-devise',              '~> 1.2.0'
 
-<pre>bundle install</pre>
+2. Use bundler to install all required gems in your Rails 3 app
 
-Run the generator:
+    bundle install
 
-<pre>rails generate devise:install</pre>
+3. Run the devise install generator, followed by the mm-devise model generator:
 
-The generator will install an initializer which describes ALL Devise's
-configuration options and you MUST take a look at it. Make sure to specify
-either <code>mongo_mapper</code> or <code>mongo_mapper_active_model</code> (ActiveModel::Validations) 
-as the orm in the configuration file.
+    rails generate devise:install
+    rails generate mongo_mapper:devise MODEL
 
-Note: Is this still required in recent versions of Devise > 1.2 ?
+The devise install generator will install an initializer
+(`config/inititializer/devise.rb`) which describes ALL Devise's configuration
+options and you MUST take a look at it. Maker sure this line exists:
 
-<pre>require 'devise/orm/mongo_mapper'</pre>  
+    require 'devise/orm/mongo_mapper'
 
-Note: The model generator should do this automatically.
+NOTE: The model generator should do this automatically.
 
 To add Devise to any of your models using the generator:
 
-<pre>rails generate mongo_mapper:devise MODEL</pre>  
+    rails generate mongo_mapper:devise MODEL
 
-Example: create a User model for use with Devise  
+Example: create a User model for use with Devise
 
-<pre>rails generate mongo_mapper:devise User</pre>
+    rails generate mongo_mapper:devise User
 
 Read the README for devise at [devise README](http://github.com/plataformatec/devise/blob/master/README.rdoc)
 
@@ -73,7 +57,7 @@ In the same container folder clone <code>devise</code> from github
 Example:
 
 <pre>git clone http://github.com/kristianmandrup/mm-devise.git
-git clone http://github.com/plataformatec/devise.git 
+git clone http://github.com/plataformatec/devise.git
 cd mm-devise
 bundle install
 rake test</pre>
@@ -87,7 +71,7 @@ rake test</pre>
 <pre>$ gem push pkg/mm-devis-xxxx.gem</pre>
 
 ## Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
